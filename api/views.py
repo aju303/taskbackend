@@ -30,7 +30,7 @@ class TasksView(ModelViewSet):
         return serializer.save(user=self.request.user)
 
     def get_queryset(self):
-        return Tasks.objects.filter(user=self.request.user)
+        return Tasks.objects.filter(user=self.request.user).order_by("-date")
     
     
 
